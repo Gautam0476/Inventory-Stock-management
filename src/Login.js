@@ -9,7 +9,7 @@ import {
   Warehouse,
 } from 'lucide-react';
 import { loginUser, signupUser, startSession } from './api';
-import Galaxy from './Galaxy';
+import PortfolioParticles from './PortfolioParticles';
 import ThemeToggle from './ThemeToggle';
 
 export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
@@ -51,29 +51,18 @@ export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
   };
 
   return (
-    <div className="relative flex min-h-screen min-h-[100svh] overflow-hidden bg-slate-950 px-3 py-4 text-slate-900 dark:text-slate-100 sm:px-4 sm:py-6 lg:py-8">
-      <div className="absolute inset-0">
-        <Galaxy
-          density={0.82}
-          glowIntensity={0.36}
-          hueShift={215}
-          mouseRepulsion
-          repulsionStrength={3.4}
-          rotationSpeed={0.18}
-          saturation={0.55}
-          speed={1.85}
-          starSpeed={1.15}
-          twinkleIntensity={0.32}
-          transparent={false}
-        />
+    <div className="auth-particles-shell relative flex min-h-screen min-h-[100svh] overflow-hidden px-3 py-4 text-slate-900 dark:text-slate-100 sm:px-4 sm:py-6 lg:py-8">
+      <div className="auth-particles-bg absolute inset-0" />
+      <div className="auth-particles-layer absolute inset-0 z-0">
+        <PortfolioParticles />
       </div>
-      <div className="absolute inset-0 bg-slate-950/35" />
+      <div className="auth-particles-overlay absolute inset-0 z-[1]" />
 
       <div className="absolute right-3 top-3 z-20 sm:right-5 sm:top-5">
         <ThemeToggle theme={theme} onToggle={toggleTheme} />
       </div>
 
-      <div className="relative z-10 m-auto w-full max-w-[34rem] overflow-hidden rounded-[1.6rem] bg-white/95 shadow-2xl backdrop-blur-md dark:bg-slate-900/92 sm:rounded-[2rem]">
+      <div className="relative z-10 m-auto w-full max-w-[34rem] overflow-hidden rounded-[1.6rem] border border-white/12 bg-white/95 shadow-2xl shadow-black/35 backdrop-blur-md dark:bg-slate-900/92 sm:rounded-[2rem]">
         <div className="p-6 sm:p-8 lg:p-10">
           <div className="mb-7 flex min-w-0 items-center gap-3 sm:mb-8">
             <span className="shrink-0 rounded-2xl bg-indigo-600 p-3 text-white">

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-jest.mock('./Galaxy', () => function MockGalaxy() {
-  return <div data-testid="galaxy-background" />;
+jest.mock('./PortfolioParticles', () => function MockPortfolioParticles() {
+  return <div data-testid="portfolio-particles" />;
 });
 
 test('renders inventory login page', () => {

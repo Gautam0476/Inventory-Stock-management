@@ -15,3 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.auth-particles-shell {
+  background: #0b1020;
+  isolation: isolate;
+}
+
+.auth-particles-bg {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(99, 102, 241, 0.24), transparent 28%),
+    radial-gradient(circle at 80% 12%, rgba(34, 211, 238, 0.14), transparent 25%),
+    linear-gradient(135deg, rgba(11, 16, 32, 0.96), rgba(15, 23, 42, 0.92));
+}
+
+.auth-particles-layer {
+  opacity: 0.35;
+}
+
+.auth-particles-overlay {
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 45%, transparent 0, rgba(3, 7, 18, 0.2) 56%, rgba(3, 7, 18, 0.58) 100%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.04), rgba(3, 7, 18, 0.3));
+}
