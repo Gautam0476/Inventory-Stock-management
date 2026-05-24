@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Inventory-&-Stock-management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Inventory-&-Stock-management is a React-based inventory and stock management dashboard for tracking products, stock levels, orders, reports, and CSV exports.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Product inventory with SKU, category, pricing, and stock quantity
+- Low-stock alerts based on reorder levels
+- Add product form with MongoDB persistence
+- Purchase and sales order overview
+- Reports for sales, purchases, and category distribution
+- Light and dark theme support
+- CSV export for inventory data
+
+## Demo Login
+
+Email: `Example@gmail.com`
+Password: `admin123`
+
+The demo user is created automatically by the backend after MongoDB Atlas is connected and you login with the credentials above.
+
+## Backend Setup
+
+1. Copy `.env.example` to `.env`.
+2. Copy `server/.env.example` to `server/.env`.
+3. Put your MongoDB Atlas connection string in `server/.env` as `MONGODB_URI`.
+4. Use a strong `JWT_SECRET` in `server/.env`.
+
+## Deployment
+
+### Render API
+
+Deploy the backend from this `my-app` folder.
+
+- Build command: `npm install`
+- Start command: `npm run server`
+- Health check path: `/api/health`
+
+Set these Render environment variables:
+
+- `MONGODB_URI`: your MongoDB Atlas URI
+- `MONGODB_DB_NAME`: `inventory-db`
+- `MONGODB_DNS_SERVERS`: `1.1.1.1,8.8.8.8`
+- `JWT_SECRET`: a long random secret
+- `JWT_EXPIRES_IN`: `7d`
+- `CLIENT_URL`: your deployed frontend URL, for example `https://your-app.vercel.app`
+
+### Vercel Frontend
+
+Deploy the frontend from this `my-app` folder.
+
+- Framework: Create React App
+- Build command: `npm run build`
+- Output directory: `build`
+
+Set this Vercel environment variable before building:
+
+- `REACT_APP_API_URL`: your Render backend API URL, for example `https://your-api.onrender.com/api`
+
+After both deploys finish, update Render `CLIENT_URL` to the final Vercel URL and redeploy the API.
+
+## Scripts
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app locally at `http://localhost:3000`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm run server`
 
-### `npm test`
+Runs the Node.js API at `http://localhost:5000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run server:dev`
+
+Runs the Node.js API with nodemon.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Creates an optimized production build in the `build` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Runs the test suite in watch mode.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For deployment checks, use `npm test -- --watchAll=false`.

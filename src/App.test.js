@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./Galaxy', () => function MockGalaxy() {
+  return <div data-testid="galaxy-background" />;
+});
+
+test('renders inventory login page', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Inventory-&-Stock-management/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Login/i })).toBeInTheDocument();
 });
