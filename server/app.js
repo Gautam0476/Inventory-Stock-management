@@ -33,6 +33,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
     app: 'Inventory-&-Stock-management API',
+    database: req.app.locals.dbStatus || 'unknown',
     timestamp: new Date().toISOString(),
   });
 });

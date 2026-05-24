@@ -9,13 +9,17 @@ const connectDB = require('./config/db');
 
 const PORT = process.env.PORT || 5000;
 
+app.locals.dbStatus = 'connecting';
+
+app.listen(PORT, () => {
+  console.log(`API running on http://localhost:${PORT}`);
+});
+
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`API running on http://localhost:${PORT}`);
-    });
+    app.locals.dbStatus = 'connected';
   })
   .catch((error) => {
-    console.error('Failed to start API:', error.message);
-    process.exit(1);
+    app.locals.dbStatus = 'failed';
+    console.error('Failed to connect MongoDB:', error.message);
   });
