@@ -8,11 +8,12 @@ const app = require('./app');
 const connectDB = require('./config/db');
 
 const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 app.locals.dbStatus = 'connecting';
 
-app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`API running on http://${HOST}:${PORT}`);
 });
 
 connectDB()
