@@ -15,8 +15,8 @@ import ThemeToggle from './ThemeToggle';
 export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
   const isSignup = mode === 'signup';
   const [name, setName] = useState('');
-  const [email, setEmail] = useState(isSignup ? '' : 'Example@gmail.com');
-  const [password, setPassword] = useState(isSignup ? '' : 'admin123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -80,7 +80,7 @@ export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" autoComplete="off">
             {isSignup && (
               <label className="block">
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Full name</span>
@@ -91,6 +91,7 @@ export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
                     onChange={(event) => setName(event.target.value)}
                     className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-12 pr-4 text-sm font-medium outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:bg-slate-900 sm:text-base"
                     placeholder="Your name"
+                    autoComplete="off"
                   />
                 </span>
               </label>
@@ -106,7 +107,8 @@ export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-12 pr-4 text-sm font-medium outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:bg-slate-900 sm:text-base"
-                  placeholder="Example@gmail.com"
+                  placeholder="Email address"
+                  autoComplete="off"
                 />
               </span>
             </label>
@@ -123,6 +125,7 @@ export default function Login({ mode = 'login', setPage, theme, toggleTheme }) {
                   onChange={(event) => setPassword(event.target.value)}
                   className="w-full min-w-0 rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-12 pr-12 text-sm font-medium outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:bg-slate-900 sm:text-base"
                   placeholder="Password"
+                  autoComplete="new-password"
                 />
                 <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-3.5 text-slate-400 hover:text-slate-800 dark:hover:text-white">
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
